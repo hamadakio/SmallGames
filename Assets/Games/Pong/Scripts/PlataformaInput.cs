@@ -86,7 +86,7 @@ namespace Pong
                 case "2":
                     Player2.transform.position = new Vector3(
                         Player2.transform.position.x,
-                        Mathf.Clamp(Player2.transform.position.y + Direction(dir.up),
+                        Mathf.Clamp(Player2.transform.position.y + Direction(dir.down),
                             -4.5f, 4.5f),
                         Player2.transform.position.z
                         );
@@ -110,10 +110,10 @@ namespace Pong
             switch (dir)
             {
                 case dir.up:
-                    aux = Speed * Time.deltaTime;
+                    aux = Speed * Time.fixedDeltaTime;
                     break;
                 case dir.down:
-                    aux = -(Speed * Time.deltaTime);
+                    aux = -(Speed * Time.fixedDeltaTime);
                     break;
                 default:
                     break;
